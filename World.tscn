@@ -53,7 +53,11 @@ tile_data = PoolIntArray(  )
 script = ExtResource( 2 )
 _sections_unfolded = [ "Cell" ]
 
-[node name="Floor" type="Node" parent="TetrisGrid" index="1"]
+[node name="Stack" type="Node2D" parent="TetrisGrid" index="1"]
+
+scale = Vector2( 1, 1 )
+
+[node name="Floor" type="Node" parent="TetrisGrid" index="2"]
 
 editor/display_folded = true
 
@@ -117,7 +121,129 @@ position = Vector2( 285, 615 )
 scale = Vector2( 1, 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stack" type="Node2D" parent="TetrisGrid" index="2"]
+[node name="Walls" type="Node" parent="TetrisGrid" index="3"]
+
+editor/display_folded = true
+
+[node name="Tile1" parent="TetrisGrid/Walls" index="0" instance=ExtResource( 3 )]
+
+position = Vector2( 315, 15 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile2" parent="TetrisGrid/Walls" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 315, 45 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile3" parent="TetrisGrid/Walls" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 315, 75 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile4" parent="TetrisGrid/Walls" index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 315, 105 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile5" parent="TetrisGrid/Walls" index="4" instance=ExtResource( 3 )]
+
+position = Vector2( 315, 135 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile6" parent="TetrisGrid/Walls" index="5" instance=ExtResource( 3 )]
+
+position = Vector2( 315, 165 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile7" parent="TetrisGrid/Walls" index="6" instance=ExtResource( 3 )]
+
+position = Vector2( 315, 195 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile8" parent="TetrisGrid/Walls" index="7" instance=ExtResource( 3 )]
+
+position = Vector2( 315, 225 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile9" parent="TetrisGrid/Walls" index="8" instance=ExtResource( 3 )]
+
+position = Vector2( 315, 255 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile10" parent="TetrisGrid/Walls" index="9" instance=ExtResource( 3 )]
+
+position = Vector2( 315, 285 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile11" parent="TetrisGrid/Walls" index="10" instance=ExtResource( 3 )]
+
+position = Vector2( 315, 315 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile12" parent="TetrisGrid/Walls" index="11" instance=ExtResource( 3 )]
+
+position = Vector2( 315, 345 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile13" parent="TetrisGrid/Walls" index="12" instance=ExtResource( 3 )]
+
+position = Vector2( 315, 375 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile14" parent="TetrisGrid/Walls" index="13" instance=ExtResource( 3 )]
+
+position = Vector2( 315, 405 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile15" parent="TetrisGrid/Walls" index="14" instance=ExtResource( 3 )]
+
+position = Vector2( 315, 435 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile16" parent="TetrisGrid/Walls" index="15" instance=ExtResource( 3 )]
+
+position = Vector2( 315, 465 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile17" parent="TetrisGrid/Walls" index="16" instance=ExtResource( 3 )]
+
+position = Vector2( 315, 495 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile18" parent="TetrisGrid/Walls" index="17" instance=ExtResource( 3 )]
+
+position = Vector2( 315, 525 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile19" parent="TetrisGrid/Walls" index="18" instance=ExtResource( 3 )]
+
+position = Vector2( 315, 555 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile20" parent="TetrisGrid/Walls" index="19" instance=ExtResource( 3 )]
+
+position = Vector2( 315, 585 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="FallTimer" type="Timer" parent="." index="1"]
 
