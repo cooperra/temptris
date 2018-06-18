@@ -27,12 +27,16 @@ func dothething(event):
 func game_step():
 	if state == "spawn":
 		spawn()
+		check_lose()
+	elif state == "post-spawn":
+		state = "fall"
+		check_lose()
 	elif state == "fall":
 		fall()
 
 func spawn():
 	$PlayerHandle.spawn_random_at_top()
-	state = "fall"
+	state = "post-spawn"
 
 func fall():
 	if $PlayerHandle.can_fall():
@@ -46,7 +50,7 @@ func land():
 	var released_tiles = $PlayerHandle.release_tiles()
 	for tile in released_tiles:
 		tile.on_land()
-		add_child_below_node($Stack, tile)
+		$Stack.add_child(tile)
 	state = "spawn"
 
 func check_clear():
@@ -55,4 +59,20 @@ func check_clear():
 
 func check_lose():
 	# TODO this can happen on spawn or landing
-	pass
+	#if $PlayerHandle.in_illegal_position():
+	if not $PlayerHandle.can_fall():
+		lose()
+
+func lose():
+	print("Game over!")
+	reset()
+
+func reset():
+	# Remove all stack children and set state to "spawn"
+	print("Reset!")
+	state = "spawn"
+	for tile in $Stack.get_children():
+		$Stack.remove_child(tile)
+		tile.free()
+	# Also empty the PlayerHandle
+	$PlayerHandle.reset()

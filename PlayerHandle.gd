@@ -19,8 +19,7 @@ func _ready():
 #	pass
 
 func spawn_random_at_top():
-	# TODO clear children if needed
-	# TODO move to respan position
+	# TODO ensure clear children if needed
 	var respawn_origin = map_to_world(respawn_pos)
 	position = respawn_origin
 	
@@ -60,3 +59,17 @@ func release_tiles():
 	var formerly_held_tiles = held_tiles
 	held_tiles = []
 	return formerly_held_tiles
+
+func reset():
+	# Remove and delete all held tiles
+	for tile in held_tiles:
+		remove_child(tile)
+		tile.free()
+	held_tiles = []
+
+func in_illegal_position():
+	# Check overlapping existing
+	for tile in held_tiles:
+		if tile.is_overlapping_other():
+			return true
+	return false

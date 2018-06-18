@@ -30,15 +30,26 @@ func set_temp(new_temp):
 func set_state(new_state):
 	state = new_state
 	if state == FALLING:
+		# Exist in falling
 		$BBoxArea.set_collision_layer_bit(2, true) # falling
 		$BBoxArea.set_collision_layer_bit(1, false) # static
+		# Detect static
+		$BBoxArea.set_collision_mask_bit(2, false) # falling
+		$BBoxArea.set_collision_mask_bit(1, true) # static
+		# Monitoring
+		$BBoxArea.monitoring = true
 	elif state == STATIC:
+		# Exist in falling
 		$BBoxArea.set_collision_layer_bit(2, false) # falling
 		$BBoxArea.set_collision_layer_bit(1, true) # static
+		# Detect falling
+		$BBoxArea.set_collision_mask_bit(2, true) # falling
+		$BBoxArea.set_collision_mask_bit(1, false) # static
+		# Monitoring
+		$BBoxArea.monitoring = false
 
 func is_supported():
 	var block_below = $DownSensor.get_overlapping_areas()
-	print(block_below)
 	if block_below:
 		print("block below!")
 		return true
@@ -47,3 +58,10 @@ func is_supported():
 
 func on_land():
 	set_state("static")
+
+func is_overlapping_other():
+	var overlapping_areas = $BBoxArea.get_overlapping_areas()
+	if overlapping_areas:
+		return true
+	else:
+		return false

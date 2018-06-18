@@ -117,7 +117,7 @@ position = Vector2( 285, 615 )
 scale = Vector2( 1, 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stack" type="Node" parent="TetrisGrid" index="2"]
+[node name="Stack" type="Node2D" parent="TetrisGrid" index="2"]
 
 [node name="FallTimer" type="Timer" parent="." index="1"]
 
