@@ -1,0 +1,49 @@
+extends Node2D
+
+# class member variables go here, for example:
+# var a = 2
+# var b = "textvar"
+const NEUTRAL = "neutral"
+const HOT = "hot"
+const FROZEN = "frozen"
+export var temp = NEUTRAL
+
+const STATIC = "static"
+const FALLING = "falling"
+export var state = STATIC
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	set_temp(temp)
+	set_state(state)
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+
+func set_temp(new_temp):
+	temp = new_temp
+	$Sprite.texture = load("res://"+new_temp+"_tile.png")
+
+func set_state(new_state):
+	state = new_state
+	if state == FALLING:
+		$BBoxArea.set_collision_layer_bit(2, true) # falling
+		$BBoxArea.set_collision_layer_bit(1, false) # static
+	elif state == STATIC:
+		$BBoxArea.set_collision_layer_bit(2, false) # falling
+		$BBoxArea.set_collision_layer_bit(1, true) # static
+
+func is_supported():
+	var block_below = $DownSensor.get_overlapping_areas()
+	print(block_below)
+	if block_below:
+		print("block below!")
+		return true
+	else:
+		return false
+
+func on_land():
+	set_state("static")

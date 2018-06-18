@@ -1,0 +1,137 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://TetrisGrid.gd" type="Script" id=1]
+[ext_resource path="res://PlayerHandle.gd" type="Script" id=2]
+[ext_resource path="res://Tile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://logo.png" type="Texture" id=4]
+
+[node name="World" type="Node" index="0"]
+
+[node name="TetrisGrid" type="TileMap" parent="." index="0"]
+
+position = Vector2( 15, 15 )
+mode = 0
+tile_set = null
+cell_size = Vector2( 30, 30 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="PlayerHandle" type="TileMap" parent="TetrisGrid" index="0"]
+
+scale = Vector2( 1, 1 )
+mode = 0
+tile_set = null
+cell_size = Vector2( 30, 30 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="Floor" type="Node" parent="TetrisGrid" index="1"]
+
+editor/display_folded = true
+
+[node name="Tile1" parent="TetrisGrid/Floor" index="0" instance=ExtResource( 3 )]
+
+position = Vector2( 15, 615 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile2" parent="TetrisGrid/Floor" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 45, 615 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile3" parent="TetrisGrid/Floor" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 75, 615 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile4" parent="TetrisGrid/Floor" index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 105, 615 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile5" parent="TetrisGrid/Floor" index="4" instance=ExtResource( 3 )]
+
+position = Vector2( 135, 615 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile6" parent="TetrisGrid/Floor" index="5" instance=ExtResource( 3 )]
+
+position = Vector2( 165, 615 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile7" parent="TetrisGrid/Floor" index="6" instance=ExtResource( 3 )]
+
+position = Vector2( 195, 615 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile8" parent="TetrisGrid/Floor" index="7" instance=ExtResource( 3 )]
+
+position = Vector2( 225, 615 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile9" parent="TetrisGrid/Floor" index="8" instance=ExtResource( 3 )]
+
+position = Vector2( 255, 615 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile10" parent="TetrisGrid/Floor" index="9" instance=ExtResource( 3 )]
+
+position = Vector2( 285, 615 )
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Stack" type="Node" parent="TetrisGrid" index="2"]
+
+[node name="FallTimer" type="Timer" parent="." index="1"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[node name="logo" type="Sprite" parent="." index="2"]
+
+position = Vector2( 735, 165 )
+scale = Vector2( 0.71, 0.71 )
+texture = ExtResource( 4 )
+
+[connection signal="timeout" from="FallTimer" to="TetrisGrid" method="game_step"]
+
+
