@@ -24,6 +24,7 @@ func spawn_random_at_top():
 	position = respawn_origin
 	
 	var tile_poses = [Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(2, 0)]
+	var temperature = ["neutral", "hot", "frozen"][randi() % 3]
 	
 	# Create em
 	var new_tiles = []
@@ -32,6 +33,7 @@ func spawn_random_at_top():
 		# TODO refactor into init
 		new_tile.position = map_to_world(pos)
 		new_tile.set_state("falling")
+		new_tile.set_temp(temperature)
 		new_tiles.append(new_tile)
 	
 	# Add em
