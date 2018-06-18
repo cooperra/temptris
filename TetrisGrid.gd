@@ -20,8 +20,20 @@ func _ready():
 #	pass
 
 # TODO input events caught here
-func dothething(event):
-	pass
+func _unhandled_input(event):
+	var angle
+	if event.is_action_pressed("ui_up"):
+		#angle = 0
+		pass
+	elif event.is_action_pressed("ui_right"):
+		$PlayerHandle.translate(Vector2(30, 0))
+	elif event.is_action_pressed("ui_down"):
+		#angle = 180
+		# Fall each press
+		game_step()
+		$'../FallTimer'.start()
+	elif event.is_action_pressed("ui_left"):
+		$PlayerHandle.translate(Vector2(-30, 0))
 
 # Called by FallTimer at a regular interval
 func game_step():
