@@ -65,3 +65,11 @@ func is_overlapping_other():
 		return true
 	else:
 		return false
+
+func on_tile_touched(area):
+	var other_tile = area.get_parent()
+	# This is where the melting happens
+	if temp == HOT and other_tile.temp == FROZEN:
+		set_temp(NEUTRAL)
+		other_tile.get_parent().remove_child(other_tile)
+		other_tile.free()

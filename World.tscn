@@ -5,7 +5,7 @@
 [ext_resource path="res://Tile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://logo.png" type="Texture" id=4]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 [node name="TetrisGrid" type="TileMap" parent="." index="0"]
 
@@ -109,6 +109,8 @@ position = Vector2( 285, 615 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Walls" type="Node" parent="TetrisGrid" index="3"]
+
+editor/display_folded = true
 
 [node name="Tile1" parent="TetrisGrid/Walls" index="0" instance=ExtResource( 3 )]
 

@@ -13,7 +13,7 @@ extents = Vector2( 15, 15 )
 custom_solver_bias = 0.0
 length = 5.0
 
-[node name="Tile" type="Node2D"]
+[node name="Tile" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 temp = "neutral"
@@ -126,5 +126,7 @@ position = Vector2( 0, -15 )
 rotation = 3.14159
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
+
+[connection signal="area_entered" from="DownSensor" to="." method="on_tile_touched"]
 
 
