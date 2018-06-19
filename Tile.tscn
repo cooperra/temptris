@@ -129,4 +129,10 @@ _sections_unfolded = [ "Transform" ]
 
 [connection signal="area_entered" from="DownSensor" to="." method="on_tile_touched"]
 
+[connection signal="area_entered" from="RightSensor" to="." method="on_tile_touched"]
+
+[connection signal="area_entered" from="LeftSensor" to="." method="on_tile_touched"]
+
+[connection signal="area_entered" from="UpSensor" to="." method="on_tile_touched"]
+
 
